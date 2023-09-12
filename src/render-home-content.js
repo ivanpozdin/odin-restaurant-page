@@ -1,4 +1,3 @@
-import HomeBackground from "./imgs/home-background.jpg";
 export default function (element) {
   const homeHTML = `
   <div id="home-restaurant-info-container">

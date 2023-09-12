@@ -112,7 +112,7 @@ body {
 }
 
 #content {
-  background-image: url("../src/imgs/home-background.jpg");
+  background-image: url("./imgs/home-background.jpg");
   background-size: cover;
   min-height: 100vh;
 }
@@ -161,7 +161,7 @@ body {
 #home-restaurant-info-container p {
   margin: 0;
   font-size: 3rem;
-  background-color: #ffffffae;
+  background-color: #ffffffcf;
   width: 70%;
   padding: 5rem;
 }

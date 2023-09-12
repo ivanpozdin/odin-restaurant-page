@@ -11,126 +11,69 @@ import water from "./imgs/water.jpg";
 import coca from "./imgs/coca.jpg";
 import beer from "./imgs/beer.jpg";
 
-export default function renderMenuContent(element) {
-  const menuHTML = `
-  <div class="menu">
-  <h1>Pasta</h1>
-  <div class="pasta-container food-section-container">
-    <div class="food-card">
-      <img
-        src="${caponata}"
-        alt="Caponata pasta"
-        srcset=""
-      />
-      <h2 class="name-food">Caponata pasta</h2>
-      <p class="price-food">10$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${backedChicken}"
-        alt="Baked chicken pasta"
-        srcset=""
-      />
-      <h2 class="name-food">Chicken pasta</h2>
-      <p class="price-food">11$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${gnocchi}"
-        alt="Chorizo & mozzarella gnocchi bake"
-        srcset=""
-      />
-      <h2 class="name-food">Chorizo & mozzarella gnocchi bake</h2>
-      <p class="price-food">11.50$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${salmonPasta}"
-        alt="Pasta with salmon & peas"
-        srcset=""
-      />
-      <h2 class="name-food">Pasta with salmon & peas</h2>
-      <p class="price-food">13$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${meatballs}"
-        alt="Spaghetti & meatballs"
-        srcset=""
-      />
-      <h2 class="name-food">Spaghetti & meatballs</h2>
-      <p class="price-food">11$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${carbonara}"
-        alt="Spaghetti carbonara"
-        srcset=""
-      />
-      <h2 class="name-food">Spaghetti carbonara</h2>
-      <p class="price-food">14$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${bolognese}"
-        alt="Pasta bolognese"
-        srcset=""
-      />
-      <h2 class="name-food">Pasta bolognese</h2>
-      <p class="price-food">12$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img
-        src="${cheesyHam}"
-        alt="Cheesy ham & broccoli pasta"
-        srcset=""
-      />
-      <h2 class="name-food">Cheesy ham & broccoli pasta</h2>
-      <p class="price-food">14$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-  </div>
+const Food = [
+  { name: "Caponata pasta", price: "10$", imageSrc: caponata },
+  { name: "Chicken pasta", price: "11$", imageSrc: backedChicken },
+  {
+    name: "Chorizo & mozzarella gnocchi bake",
+    price: "11.50$",
+    imageSrc: gnocchi,
+  },
+  { name: "Pasta with salmon & peas", price: "13$", imageSrc: salmonPasta },
+  { name: "Spaghetti & meatballs", price: "11$", imageSrc: meatballs },
+  { name: "Spaghetti carbonara", price: "14$", imageSrc: carbonara },
+  { name: "Pasta bolognese", price: "12$", imageSrc: bolognese },
+  { name: "Cheesy ham & broccoli pasta", price: "14$", imageSrc: cheesyHam },
+];
 
-  <h1>Drinks</h1>
-  <div class="drinks-container food-section-container">
-    <div class="food-card">
-      <img
-        src="${orangeJuice}"
-        alt="Fresh orange juice"
-        srcset=""
-      />
-      <h2 class="name-food">Fresh orange juice</h2>
-      <p class="price-food">4$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img src="${water}" alt="Water" srcset="" />
-      <h2 class="name-food">Water</h2>
-      <p class="price-food">2$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img src="${coca}" alt="Coca-Cola" srcset="" />
-      <h2 class="name-food">Coca-Cola</h2>
-      <p class="price-food">3$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-    <div class="food-card">
-      <img src="${beer}" alt="Beer" srcset="" />
-      <h2 class="name-food">Beer</h2>
-      <p class="price-food">5$</p>
-      <button class="order-food-btn">Order</button>
-    </div>
-  </div>
-</div>
+const Drinks = [
+  { name: "Orange juice", price: "6$", imageSrc: orangeJuice },
+  { name: "Water", price: "2$", imageSrc: water },
+  { name: "Coca-Cola", price: "3$", imageSrc: coca },
+  { name: "Beer", price: "5$", imageSrc: beer },
+];
+
+const createFoodCardElement = function (food) {
+  const foodCardDiv = document.createElement("div");
+  foodCardDiv.classList.add("food-card");
+  const imageOfFood = new Image();
+  imageOfFood.setAttribute("src", food.imageSrc);
+  imageOfFood.setAttribute("alt", food.name);
+
+  foodCardDiv.innerHTML = `
+  <h2 class="name-food">${food.name}</h2>
+  <p class="price-food">${food.price}</p>
+  <button class="order-food-btn">Order</button>
   `;
+  foodCardDiv.insertAdjacentElement("afterbegin", imageOfFood);
+
+  return foodCardDiv;
+};
+
+const createMenuElement = function () {
+  const menuContainer = document.createElement("div");
+  menuContainer.classList.add("menu");
+  menuContainer.insertAdjacentHTML("afterbegin", "<h1>Pasta</h1>");
+  menuContainer.insertAdjacentElement("beforeend", createFoodMenu(Food));
+  menuContainer.insertAdjacentHTML("beforeend", "<h1>Drinks</h1>");
+  menuContainer.insertAdjacentElement("beforeend", createFoodMenu(Drinks));
+  return menuContainer;
+};
+
+const createFoodMenu = function (foodList) {
+  const foodMenuContainer = document.createElement("div");
+  foodMenuContainer.classList.add("food-section-container");
+  for (const food of foodList) {
+    foodMenuContainer.insertAdjacentElement(
+      "beforeend",
+      createFoodCardElement(food)
+    );
+  }
+  return foodMenuContainer;
+};
+
+export default function renderMenuContent(element) {
+  const menu = createMenuElement();
   element.innerHTML = "";
-  element.insertAdjacentHTML("afterbegin", menuHTML);
+  element.insertAdjacentElement("afterbegin", menu);
 }
