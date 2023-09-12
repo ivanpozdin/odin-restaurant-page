@@ -43,6 +43,10 @@ body {
   width: 100%;
 }
 
+.menu {
+  background-color: #ffffff;
+}
+
 .menu h1 {
   text-align: center;
   font-size: 4rem;
@@ -105,4 +109,59 @@ body {
   background-color: #a4442a;
   color: #fff;
   border-radius: 2rem;
+}
+
+#content {
+  background-image: url("../src/imgs/home-background.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.contact-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contacts {
+  font-size: 3rem;
+  width: 70%;
+
+  background-color: #ffffffae;
+  color: #000;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contacts p {
+  margin: 0;
+}
+
+.contacts img {
+  width: 3rem;
+}
+
+.contacts iframe {
+  align-self: center;
+}
+
+.contact-card {
+  display: flex;
+  gap: 1rem;
+}
+
+#home-restaurant-info-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#home-restaurant-info-container p {
+  margin: 0;
+  font-size: 3rem;
+  background-color: #ffffffae;
+  width: 70%;
+  padding: 5rem;
 }

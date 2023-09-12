@@ -1,12 +1,11 @@
 import HomeBackground from "./imgs/home-background.jpg";
 export default function (element) {
   const homeHTML = `
-    <img
-            id="home-background-img"
-            src="${HomeBackground}"
-            alt="Several pasta dishes on a table"
-            srcset=""
-    /> 
+  <div id="home-restaurant-info-container">
+  <p>
+  POZDINNI is the best totally fictional pasta restaurant in Chicago. We've been cooking delicious italian dishes in website's author's imagination since 1977. This non-existent restaurant proved its food taste and quality by generations of our customers, number of which is suspiciously close to zero.
+  </p>
+  </div>
     `;
   element.innerHTML = "";
   element.insertAdjacentHTML("afterbegin", homeHTML);
